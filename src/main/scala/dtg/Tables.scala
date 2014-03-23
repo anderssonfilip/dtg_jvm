@@ -21,3 +21,10 @@ import scala.slick.driver.H2Driver.simple._
     def amount = column[Double]("AMOUNT")
     def * = (addr, amount)
   }
+    
+  class WorkingTransactions(tag: Tag) extends Table[(String, Double, Int)](tag, "WORKINGTRANSACTIONS") {
+    def addr = column[String]("ADDR", O.PrimaryKey)
+    def amount = column[Double]("AMOUNT")
+    def block = column[Int]("BLOCK")
+    def * = (addr, amount, block)
+  }
